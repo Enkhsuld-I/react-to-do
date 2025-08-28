@@ -7,7 +7,6 @@ export const Button2 = ({ backgroundColor, title, color }) => {
       >
         {title}
       </button>
-      ;
     </div>
   );
 };
