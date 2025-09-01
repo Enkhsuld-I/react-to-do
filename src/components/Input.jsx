@@ -1,7 +1,10 @@
-export const Input = ({ onChange, value }) => {
+import { Todo_tasks } from "./Todo_tasks";
+
+export const Input = ({ onChange, value, onKeyDown }) => {
   return (
     <div className="flex gap-[6px]">
       <input
+        onKeyDown={onKeyDown}
         value={value}
         onChange={onChange}
         type=""

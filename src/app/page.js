@@ -37,6 +37,21 @@ const Home = () => {
 
   const handleOnDelete = () => {};
 
+  const handleEnterButton = (event) => {
+    if (event.key === "Enter") {
+      if (inputvalue !== "") {
+        const newTodos = [
+          ...todos,
+          { title: inputvalue, check: false, id: uuidv4() },
+        ];
+        setTodos(newTodos);
+        setInputvalue("");
+      } else {
+        alert("hooson bn yum bich");
+      }
+    }
+  };
+
   return (
     <div className="bg-white w-full h-screen flex justify-center py-[140px]">
       <div className="w-[377px] h-fit bg-white flex flex-col shadow-[0_0_12px_0_rgba(0,0,0,0.16)] pt-6 pb-6 pr-4 pl-4">
@@ -45,7 +60,11 @@ const Home = () => {
         </div>
 
         <div className="flex gap-[6px] py-5">
-          <Input onChange={handleOnChange} value={inputvalue}></Input>
+          <Input
+            onChange={handleOnChange}
+            value={inputvalue}
+            onKeyDown={handleEnterButton}
+          ></Input>
           <Button1 onClick={handleOnClick}></Button1>
         </div>
 
